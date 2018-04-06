@@ -70,7 +70,7 @@ export default class Game extends React.Component {
     if (this.state.stepNumber) {
       toggleButton = 
         <button onClick={() => this.toggleSort()} style={{margin: '20px 0 0 30px'}}>
-          sort by {this.state.sortOrder ? 'ASC' : 'DESC'}
+          sort by {this.state.sortOrder ? 'asc' : 'desc'}
         </button>
     } 
 
