@@ -25,14 +25,6 @@ class Board extends React.Component {
   }
 
   render() {
-    // const winner = calculateWinner(this.state.squares);
-    // let status;
-    // if (winner) {
-    //   status = 'winner is: ' + winner;
-    // } else {
-    //   status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
-    // }
-
     return (
       <div>
         <div className="board-row">
@@ -142,6 +134,11 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+/**
+ * 当前步数下的游戏情况
+ * @param  {[object]} squares [description]
+ * @return {[winner|null]}         [description]
+ */
 function calculateWinner(squares) {
   const lines = [
     [0, 1, 2],
