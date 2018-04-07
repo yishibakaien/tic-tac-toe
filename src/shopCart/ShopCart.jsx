@@ -21,7 +21,7 @@ export default class ShopCart extends React.Component {
   }
 
   updateCart() {
-    store.dispatch(updateCart('Flour 1kg', 5, 110));
+    store.dispatch(updateCart('Coffee 500mg', 1, 111));
   }
 
   deleteFromCart() {
@@ -37,13 +37,15 @@ export default class ShopCart extends React.Component {
 
     return (
       <div className="shop-cart">
-        <button onClick={() => this.addToCart()}>add to Coffee to cart</button>
-        <button onClick={() => this.updateCart()}>update cart</button>
+        <button onClick={() => this.addToCart()}>add Coffee to cart</button>
+        <button onClick={() => this.updateCart()}>
+          update new Coffee to cart
+        </button>
         <button onClick={() => this.deleteFromCart()}>
           delete Coffee from cart
         </button>
         <button onClick={() => this.asyncAddToCart()}>
-          async add Coffee to cart
+          async add Milk to cart
         </button>
       </div>
     );

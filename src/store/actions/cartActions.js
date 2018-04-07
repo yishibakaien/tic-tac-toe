@@ -28,7 +28,7 @@ export function deleteFromCart(product) {
 }
 
 export function asyncAddToCart(product, quantity, unitCost) {
-  return (dispatch, getState) => {
+  return dispatch => {
     setTimeout(() => {
       dispatch(addToCart(product, quantity, unitCost));
     }, 1000);
