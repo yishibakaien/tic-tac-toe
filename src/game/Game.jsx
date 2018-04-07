@@ -1,18 +1,20 @@
 import React from 'react';
 import Board from './Board';
+import './index.css';
 
 export default class Game extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      history: [{
-        squares: Array.from({length: 9}).fill(null)
-      }],
+      history: [
+        {
+          squares: Array.from({ length: 9 }).fill(null)
+        }
+      ],
       sortOrder: true,
       stepNumber: 0,
       xIsNext: true
-    }
+    };
   }
 
   handleClick(i) {
@@ -26,9 +28,11 @@ export default class Game extends React.Component {
 
     squares[i] = this.state.xIsNext ? 'X' : 'O';
     this.setState({
-      history: history.concat([{
-        squares: squares
-      }]),
+      history: history.concat([
+        {
+          squares: squares
+        }
+      ]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext
     });
@@ -45,7 +49,7 @@ export default class Game extends React.Component {
       stepNumber: step,
 
       // 偶数次为 true
-      xIsNext: (step % 2) === 0
+      xIsNext: step % 2 === 0
     });
   }
 
@@ -55,8 +59,7 @@ export default class Game extends React.Component {
     const winner = calculateWinner(current.squares);
 
     const moves = history.map((step, move) => {
-
-      const desc = move ? ('Go to move #' + move) : 'Go to game start';
+      const desc = move ? 'Go to move #' + move : 'Go to game start';
 
       return (
         <li key={move}>
@@ -68,11 +71,15 @@ export default class Game extends React.Component {
     let toggleButton;
 
     if (this.state.stepNumber) {
-      toggleButton = 
-        <button onClick={() => this.toggleSort()} style={{margin: '20px 0 0 30px'}}>
+      toggleButton = (
+        <button
+          onClick={() => this.toggleSort()}
+          style={{ margin: '20px 0 0 30px' }}
+        >
           sort by {this.state.sortOrder ? 'asc' : 'desc'}
         </button>
-    } 
+      );
+    }
 
     let status;
 
@@ -85,10 +92,7 @@ export default class Game extends React.Component {
     return (
       <div className="game">
         <div className="game-board">
-          <Board 
-            squares={current.squares}
-            onClick={(i) => this.handleClick(i)}
-          />
+          <Board squares={current.squares} onClick={i => this.handleClick(i)} />
         </div>
         <div className="game-info">
           <div>{status}</div>
@@ -99,7 +103,6 @@ export default class Game extends React.Component {
     );
   }
 }
-
 
 /**
  * 当前步数下的游戏情况，判断输赢
