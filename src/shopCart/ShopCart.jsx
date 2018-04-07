@@ -33,10 +33,11 @@ export default class ShopCart extends React.Component {
   }
 
   render() {
-    console.log('initTial state', store.getState());
+    console.log('initTial cart state', store.getState());
 
     return (
       <div className="shop-cart">
+        <p>open console to see the change</p>
         <button onClick={() => this.addToCart()}>add Coffee to cart</button>
         <button onClick={() => this.updateCart()}>
           update new Coffee to cart

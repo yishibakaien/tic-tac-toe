@@ -26,7 +26,7 @@ export function deleteFromCart(product) {
     }
   };
 }
-
+// 异步方法
 export function asyncAddToCart(product, quantity, unitCost) {
   return dispatch => {
     setTimeout(() => {
