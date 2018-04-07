@@ -1,7 +1,4 @@
-export const ADD_TO_CART = 'ADD_TO_CART'; // 从购物车中删除商品
-
-export const UPDATE_CART = 'UPDATE_CART'; // 更新购物车
-export const DELETE_FROM_CART = 'DELETE_FROM_CART'; // 从购物车中删除商品
+import { ADD_TO_CART, UPDATE_CART, DELETE_FROM_CART } from '../actionTypes';
 
 export function addToCart(product, quantity, unitCost) {
   return {
@@ -27,5 +24,13 @@ export function deleteFromCart(product) {
     payload: {
       product
     }
+  };
+}
+
+export function asyncAddToCart(product, quantity, unitCost) {
+  return (dispatch, getState) => {
+    setTimeout(() => {
+      dispatch(addToCart(product, quantity, unitCost));
+    }, 1000);
   };
 }

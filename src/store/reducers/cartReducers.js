@@ -1,8 +1,4 @@
-import {
-  ADD_TO_CART,
-  UPDATE_CART,
-  DELETE_FROM_CART
-} from '../actions/cart-actions';
+import { ADD_TO_CART, UPDATE_CART, DELETE_FROM_CART } from '../actionTypes';
 
 const initialState = {
   cart: [

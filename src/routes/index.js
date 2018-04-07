@@ -8,11 +8,14 @@ import {
 } from 'react-router-dom';
 
 import Game from '../game/Game';
+import ShopCart from '../shopCart/ShopCart';
 
 const routes = (
   <Router>
     <Switch>
-      <Route path="/" component={Game} />
+      {/* <Route path="/" component={Game} /> */}
+      <Route path="/game" component={Game} />
+      <Route path="/shop" component={ShopCart} />
     </Switch>
   </Router>
 );
