@@ -11,17 +11,18 @@ import './index.css';
 
 export default class ShopCart extends React.Component {
   componentDidMount() {
+    // console.log(store.replaceReducer);
     store.subscribe(() => {
       console.log(store.getState());
     });
   }
 
   addToCart() {
-    store.dispatch(addToCart('Coffee 500mg', 1, 250));
+    store.dispatch(addToCart('Coffee 500mg', 1, 111));
   }
 
   updateCart() {
-    store.dispatch(updateCart('Coffee 500mg', 1, 111));
+    store.dispatch(updateCart('Coffee 500mg', 2, 222));
   }
 
   deleteFromCart() {

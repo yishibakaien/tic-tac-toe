@@ -3,10 +3,15 @@ import { ADD_TO_CART, UPDATE_CART, DELETE_FROM_CART } from '../actionTypes';
 export function addToCart(product, quantity, unitCost) {
   return {
     type: ADD_TO_CART,
-    payload: { product, quantity, unitCost }
+    payload: {
+      product,
+      quantity,
+      unitCost
+    }
   };
 }
 
+// 更新购物车
 export function updateCart(product, quantity, unitCost) {
   return {
     type: UPDATE_CART,

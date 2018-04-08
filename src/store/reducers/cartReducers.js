@@ -26,6 +26,7 @@ const cartReducer = function(state = initialState, action) {
     case UPDATE_CART: {
       return {
         ...state,
+        // product 相同则替换掉这个 product
         cart: state.cart.map(
           item =>
             item.product === action.payload.product ? action.payload : item
