@@ -8,3 +8,7 @@
   margin-right: 16px;
   font-size: 20px;
 }
+.shop-cart span {
+  display: inline-block;
+  padding: 5px;
+}

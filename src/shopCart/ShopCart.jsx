@@ -10,12 +10,19 @@ import {
 import './index.css';
 
 export default class ShopCart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cart: store.getState().shoppingCart.cart
+    };
+  }
+
   componentDidMount() {
-    // console.log(store.replaceReducer);
     store.subscribe(() => {
-      // console.log(store.getState());
       const cart = store.getState().shoppingCart.cart;
-      console.log('cart', cart);
+      this.setState({
+        cart
+      });
     });
   }
 
@@ -58,6 +65,17 @@ export default class ShopCart extends React.Component {
       'initTial state.shopping.cart',
       store.getState().shoppingCart.cart
     );
+    const items = this.state.cart;
+
+    const renderItmes = items.map((item, index) => {
+      return (
+        <p key={index}>
+          <span>商品：{item.name}</span>
+          <span>quantity：{item.quantity}</span>
+          <span>unitCost：{item.unitCost}</span>
+        </p>
+      );
+    });
 
     return (
       <div className="shop-cart">
@@ -70,8 +88,9 @@ export default class ShopCart extends React.Component {
           delete Coffee from cart
         </button>
         <button onClick={() => this.asyncAddToCart()}>
-          async add Milk to cart
+          async add Milk to cart 50% success
         </button>
+        {renderItmes}
       </div>
     );
   }
