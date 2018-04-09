@@ -4,42 +4,42 @@ import {
   DELETE_FROM_CART
 } from '../actionTypes/index';
 
-export function addToCart(product, quantity, unitCost) {
+import { addProduct } from '../../api/index';
+
+export function addToCart(product) {
   return {
     type: ADD_TO_CART,
-    payload: {
-      product,
-      quantity,
-      unitCost
-    }
+    payload: product
   };
 }
 
 // 更新购物车
-export function updateCart(product, quantity, unitCost) {
+export function updateCart(product) {
   return {
     type: UPDATE_CART,
-    payload: {
-      product,
-      quantity,
-      unitCost
-    }
+    payload: product
   };
 }
 
-export function deleteFromCart(product) {
+/**
+ * 删除购物车中的某一项
+ * @param {name} string
+ */
+export function deleteFromCart(name) {
   return {
     type: DELETE_FROM_CART,
     payload: {
-      product
+      name
     }
   };
 }
-// 异步方法
-export function asyncAddToCart(product, quantity, unitCost) {
+// 异步方法测试
+export function asyncAddToCart(product) {
   return dispatch => {
-    setTimeout(() => {
-      dispatch(addToCart(product, quantity, unitCost));
-    }, 1000);
+    addProduct(product)
+      .then(res => {
+        dispatch(addToCart(product));
+      })
+      .catch(err => console.log(err));
   };
 }

@@ -7,12 +7,12 @@ import {
 const initialState = {
   cart: [
     {
-      product: 'bread 700g',
+      name: 'bread 700g',
       quantity: 2,
       unitCost: 90
     },
     {
-      product: 'milk 500ml',
+      name: 'milk 500ml',
       quantity: 1,
       unitCost: 47
     }
@@ -32,15 +32,14 @@ const cartReducer = function(state = initialState, action) {
         ...state,
         // product 相同则替换掉这个 product
         cart: state.cart.map(
-          item =>
-            item.product === action.payload.product ? action.payload : item
+          item => (item.name === action.payload.name ? action.payload : item)
         )
       };
     }
     case DELETE_FROM_CART: {
       return {
         ...state,
-        cart: state.cart.filter(item => item.product !== action.payload.product)
+        cart: state.cart.filter(item => item.name !== action.payload.name)
       };
     }
     default:

@@ -13,16 +13,30 @@ export default class ShopCart extends React.Component {
   componentDidMount() {
     // console.log(store.replaceReducer);
     store.subscribe(() => {
-      console.log(store.getState());
+      // console.log(store.getState());
+      const cart = store.getState().shoppingCart.cart;
+      console.log('cart', cart);
     });
   }
 
   addToCart() {
-    store.dispatch(addToCart('Coffee 500mg', 1, 111));
+    store.dispatch(
+      addToCart({
+        name: 'Coffee 500mg',
+        quantity: 1,
+        unitCost: 111
+      })
+    );
   }
 
   updateCart() {
-    store.dispatch(updateCart('Coffee 500mg', 2, 222));
+    store.dispatch(
+      updateCart({
+        name: 'Coffee 500mg',
+        quantity: 2,
+        unitCost: 222
+      })
+    );
   }
 
   deleteFromCart() {
@@ -30,11 +44,20 @@ export default class ShopCart extends React.Component {
   }
 
   asyncAddToCart() {
-    store.dispatch(asyncAddToCart('Milk 300ml', 1, 100));
+    store.dispatch(
+      asyncAddToCart({
+        name: 'Milk 300ml',
+        quantity: 1,
+        unitCost: 100
+      })
+    );
   }
 
   render() {
-    console.log('initTial cart state', store.getState());
+    console.log(
+      'initTial state.shopping.cart',
+      store.getState().shoppingCart.cart
+    );
 
     return (
       <div className="shop-cart">
