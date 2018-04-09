@@ -5,6 +5,6 @@
 * npm i
 * npm run start
 * redux/react-redux/react-router@3.0.5 basic react tutorial
+* contains a tiny game and shop-cart
 
-- contains a tiny game and shop-cart
-  to be continued
+to be continued
