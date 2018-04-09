@@ -1,7 +1,8 @@
 // eslint-disable-next-line
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import { Provider } from 'react-redux';
-import routes from './routes/index';
 
-ReactDOM.render(routes, document.getElementById('root'));
+// import Router from './routes/index';
+import root from './root';
+
+ReactDOM.render(root, document.getElementById('root'));
