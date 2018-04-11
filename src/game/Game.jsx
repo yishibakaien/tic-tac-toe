@@ -18,7 +18,7 @@ export default class Game extends React.Component {
   }
 
   handleClick(i) {
-    // slice 为右边开区间 [1, 2, 3, 4].slice(0, 1)  => [1]
+    // slice 为右边开区间  @example: [1, 2, 3, 4].slice(0, 1)  => [1]
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
@@ -38,6 +38,7 @@ export default class Game extends React.Component {
     });
   }
 
+  // 对游戏的进行步数记录进行反向排序的真正操作（暂未实现）;
   toggleSort() {
     this.setState({
       sortOrder: !this.state.sortOrder

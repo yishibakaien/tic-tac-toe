@@ -19,6 +19,7 @@ export default class Board extends React.Component {
     );
   }
 
+  // 渲染棋盘
   renderBoard(arr) {
     const boardRow = [];
     const board = [];
@@ -31,14 +32,18 @@ export default class Board extends React.Component {
       if (boardRow.length === MAX) {
         const copy = boardRow.slice();
         boardRow.length = 0;
-        board.push(<div className="board-row" key={i}>{copy}</div>);
+        board.push(
+          <div className="board-row" key={i}>
+            {copy}
+          </div>
+        );
       }
     }
 
-    return (<div>{board}</div>);
+    return <div>{board}</div>;
   }
   render() {
-    const squaresIndexArr = [...Array.from({length: 9}).keys()];
+    const squaresIndexArr = [...Array.from({ length: 9 }).keys()];
     return this.renderBoard(squaresIndexArr);
   }
 }
