@@ -33,6 +33,7 @@ export function deleteFromCart(name) {
     }
   };
 }
+
 // 异步方法测试
 export function asyncAddToCart(product) {
   return dispatch => {

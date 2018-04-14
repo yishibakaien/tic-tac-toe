@@ -1,19 +1,15 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
+import { Provider, connect } from 'react-redux';
 
+import routes from './routes/index';
 import Game from './game/Game';
 import ShopCart from './shop/shopCart';
 
-const App = ({ todos, actions }) => (
-  <div>
-    <Header addTodo={actions.addTodo} />
-    <MainSection todos={todos} actions={actions} />
-  </div>
-);
+const App = () => <div />;
 
 const mapStateToProps = state => ({
-  todos: state.todos
+  product: state.ShopCart
 });
 
 const mapDispatchToProps = dispatch => ({
